@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('local','LocalController');
+Route::resource('proveedor','ProveedorController');
+Route::resource('producto','ProductoController');
+Route::resource('asesor','AsesorController');
+
