@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('home', function () {
+    return view('layouts.app2');
 });
+
 
 Route::resource('local','LocalController');
 Route::resource('proveedor','ProveedorController');
 Route::resource('producto','ProductoController');
 Route::resource('asesor','AsesorController');
+Route::resource('dispositivo','DispositivoController');
+Route::resource('movimiento','MovimientoController');
 

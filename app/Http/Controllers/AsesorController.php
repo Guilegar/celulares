@@ -110,6 +110,8 @@ class AsesorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $asesor = Asesor::findOrFail($id);
+        $asesor->delete();
+        return redirect()->route('asesor.index')->with('status','eliminado');
     }
 }

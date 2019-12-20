@@ -199,7 +199,8 @@ return [
         'ase_nom'               => 'Nombre Asesor',
         'ase_dir'               => 'Dirección Asesor',
         'ase_tel'               => 'Telefono Asesor',
-        'est_cod'               => 'Estado'
+        'est_cod'               => 'Estado',
+        'prod_cod'               => 'Codigo de Producto'
 
         
     ],
