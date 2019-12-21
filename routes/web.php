@@ -12,7 +12,7 @@
 */
 
 Route::get('home', function () {
-    return view('layouts.app2');
+    return view('layouts.app');
 });
 
 
