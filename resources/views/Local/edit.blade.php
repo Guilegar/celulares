@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('title', 'Actualización de Local')
 @section('title2', 'Actualización de Local')

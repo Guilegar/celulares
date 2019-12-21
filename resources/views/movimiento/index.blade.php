@@ -53,10 +53,10 @@
                         <form method="POST" action="/movimiento/{{$movimiento->movi_cod}}" accept-charset="UTF-8" 
                             style="display:inline">
                             @csrf
-                            <input name="_method" type="hidden" value="DELETE">					
-                            <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>				
+                           <!-- <input name="_method" type="hidden" value="DELETE">					
+                            <button type="submit" class="btn btn-danger btn-sm fa fa-trash" style="margin-right: 10px">	</button>-->				
                         </form>
-                        <a href="/movimiento/{{$movimiento->movi_cod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>
+                      {{--  <a href="/movimiento/{{$movimiento->movi_cod}}/edit"><i class="btn btn-info btn-sm fa fa-edit"></i></a>--}}
                     {{-- @endcannot --}}
                     </td>
                 </tr>

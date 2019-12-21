@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use Illuminate\Support\Facades\DB;
 use App\Movimiento;
 use App\Producto;
@@ -27,7 +29,7 @@ class MovimientoController extends Controller
             ->join('locales','m.local_cod','=','locales.local_cod')
             ->join('asesores','m.ase_cod','=','asesores.ase_cod')
             
-            ->select('m.movi_cod','productos.prod_nom','dispositivos.color','m.imei','m.imei2','m.fecha',
+            ->select('m.movi_cod','productos.prod_nom','dispositivos.color','dispositivos.imei','dispositivos.imei2','m.fecha',
                      'accion.acc_nom','locales.local_nom','asesores.ase_nom','m.obs_mov')
             ->orderBy('m.movi_cod')
             // ->get();
@@ -61,7 +63,25 @@ class MovimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'dis_cod' => 'required',
+            'acc_cod' => 'required',
+            'fecha' => 'required',
+            'local_cod' => 'required',
+            'ase_cod' => 'required'
+       ]);
+
+       $movimiento = new Movimiento;
+       //$flight->name = $request->name
+      // $fecha = DateTime::createFromFormat('d-m-Y',$request->fecha )->format('Y-m-d');
+       $movimiento->dis_cod  = $request->dis_cod;
+       $movimiento->fecha = $request->fecha;
+       $movimiento->acc_cod = $request->acc_cod;
+       $movimiento->local_cod = $request->local_cod;
+       $movimiento->ase_cod = $request->ase_cod;
+       $movimiento->obs_mov = $request->obs_mov;
+       $movimiento->save();
+       return redirect()->route('movimiento.index')->with('status','guardado');
     }
 
     /**

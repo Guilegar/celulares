@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('title', 'Registro de Movimientos')
 
@@ -26,14 +26,59 @@
 						</select>
 						{!!$errors->first('dis_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
 					</div>
+
+					<div class="form-group">
+						<label for="accion">Acción a Realizar</label>
+						<select name='acc_cod' class = 'form-control  select2'>
+							<option value="">Seleccione uno ... </option>
+							@foreach($acciones as $accion)
+								<option value = '{{ $accion->acc_cod }}'
+									{{(old('acc_cod') == $accion->acc_cod) ? 'selected':''}}>{{$accion->acc_nom}}
+								</option>
+							@endforeach
+						</select>
+						{!!$errors->first('acc_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+					</div>
 					
 					<div class="form-group">
-						<label for="stock">Fecha</label>
+						<label for="fecha">Fecha</label>
 						<input size="16" type="text" class="form-control" id="fecha" name="fecha" readonly
 						>
-						<small id="stockHelp" class="form-text text-muted">{{$errors->first('fecha')}}</small>
+						<small id="fechaHelp" class="form-text text-muted">{{$errors->first('fecha')}}</small>
 					</div>
 
+					<div class="form-group">
+						<label for="local_cod">Local</label>
+						<select name='local_cod' class = 'form-control  select2'>
+							<option value="">Seleccione uno ... </option>
+							@foreach($locales as $local)
+								<option value = '{{ $local->local_cod }}'
+									{{(old('local_cod') == $local->local_cod) ? 'selected':''}}>{{$local->local_nom}}
+								</option>
+							@endforeach
+						</select>
+						{!!$errors->first('local_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+					</div>
+
+					<div class="form-group">
+						<label for="asesor">Asesor</label>
+						<select name='ase_cod' class = 'form-control  select2'>
+							<option value="">Seleccione uno ... </option>
+							@foreach($asesores as $asesor)
+								<option value = '{{ $asesor->ase_cod }}'
+									{{(old('ase_cod') == $asesor->ase_cod) ? 'selected':''}}>{{$asesor->ase_nom}}
+								</option>
+							@endforeach
+						</select>
+						{!!$errors->first('ase_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+					</div>
+
+					<div class="form-group">
+						<label for="obs_mov">Observaciones</label>
+						<input type="text" class="form-control" name="obs_mov" id="obs_mov" aria-describedby="obs_movHelp"
+						value ={{old('obs_mov')}}>
+						<small id="obs_movHelp" class="form-text text-muted">{{$errors->first('obs_mov')}}</small>
+					</div>
 
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				
 				</form>
@@ -48,10 +93,7 @@
 			<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 			<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 			
-            
-			
-
-			<script>
+            <script>
 			// In your Javascript (external .js resource or <script> tag)
 				$(document).ready(function() {
 				$('.select2').select2();
@@ -64,9 +106,11 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		 
 		   <script>
-			$( function() {
-			$( "#fecha" ).datepicker();
-			} );
+				$( function() {
+					$( "#fecha" ).datepicker({
+								"dateFormat":'yy-mm-dd'
+			    			  });
+			    });
 			</script>
 	<!-- ------------------------------------------>		
 	
