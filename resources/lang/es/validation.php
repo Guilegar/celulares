@@ -200,7 +200,12 @@ return [
         'ase_dir'               => 'Dirección Asesor',
         'ase_tel'               => 'Telefono Asesor',
         'est_cod'               => 'Estado',
-        'prod_cod'               => 'Codigo de Producto'
+        'prod_cod'              => 'Codigo de Producto',
+        'dis_cod'               => 'Imei Dispositivo',
+        'acc_cod'               => 'Asesor',
+        'fecha'                 => 'Fecha de Movimiento',
+        'local_cod'             => 'Local',
+        'ase_cod'               => 'Asesor'
 
         
     ],

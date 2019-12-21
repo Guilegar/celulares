@@ -24,7 +24,7 @@
 								</option>
 							@endforeach
 						</select>
-						{!!$errors->first('dis_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+						<small id="dis_codHelp" class="text-danger">{{$errors->first('dis_cod')}}</small>
 					</div>
 
 					<div class="form-group">
@@ -37,14 +37,14 @@
 								</option>
 							@endforeach
 						</select>
-						{!!$errors->first('acc_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+						<small id="acc_codHelp" class="text-danger">{{$errors->first('acc_cod')}}</small>
 					</div>
 					
 					<div class="form-group">
 						<label for="fecha">Fecha</label>
 						<input size="16" type="text" class="form-control" id="fecha" name="fecha" readonly
 						>
-						<small id="fechaHelp" class="form-text text-muted">{{$errors->first('fecha')}}</small>
+						<small id="fechaHelp" class="text-danger">{{$errors->first('fecha')}}</small>
 					</div>
 
 					<div class="form-group">
@@ -57,7 +57,7 @@
 								</option>
 							@endforeach
 						</select>
-						{!!$errors->first('local_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+						<small id="local_codHelp" class="text-danger">{{$errors->first('local_cod')}}</small>
 					</div>
 
 					<div class="form-group">
@@ -70,14 +70,14 @@
 								</option>
 							@endforeach
 						</select>
-						{!!$errors->first('ase_cod', '<div class="alert alert-danger" role ="alert">:message</div>')!!}
+						<small id="ase_codHelp" class="text-danger">{{$errors->first('ase_cod')}}</small>
 					</div>
 
 					<div class="form-group">
 						<label for="obs_mov">Observaciones</label>
 						<input type="text" class="form-control" name="obs_mov" id="obs_mov" aria-describedby="obs_movHelp"
 						value ={{old('obs_mov')}}>
-						<small id="obs_movHelp" class="form-text text-muted">{{$errors->first('obs_mov')}}</small>
+						<small id="obs_movHelp" class="text-danger">{{$errors->first('obs_mov')}}</small>
 					</div>
 
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				
