@@ -23,3 +23,7 @@ Route::resource('asesor','AsesorController');
 Route::resource('dispositivo','DispositivoController');
 Route::resource('movimiento','MovimientoController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -19,39 +19,79 @@
 
 <body>
   
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Celulares | Diplomado</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Celulares | Diplomado</a>
+           <!--<div>-->
         
-           <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-              </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="{{route('movimiento.index')}}">Movimientos</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Gestión
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{route('asesor.index')}}">Asesores</a>  
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{route('local.index')}}">Locales</a>
-                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="{{route('producto.index')}}">Productos</a>
-                 <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="{{route('dispositivo.index')}}">Dispositivos</a>
-                 <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="{{route('proveedor.index')}}">Proveedores</a>
-                  <div class="dropdown-divider"></div>
-                 
-                </div>
-              </li>
-    
-          </ul>
+                <!-- Authentication Links -->
+                @guest
+                    <li class="navbar-nav">
+                        <a class="navbar-brand" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                            <li class="navbar-nav">
+                                <a class="navbar-brand" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                    @endif              
+                @else
+                   
+                
+                     
+                    <!------------>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="navbar-nav">
+                                    <a class="nav-link" href="{{route('movimiento.index')}}">Movimientos</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Gestión
+                                    </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{route('asesor.index')}}">Asesores</a>  
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{route('local.index')}}">Locales</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{route('producto.index')}}">Productos</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{route('dispositivo.index')}}">Dispositivos</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{route('proveedor.index')}}">Proveedores</a>
+                                                <div class="dropdown-divider"></div>
+                                        </div>
+                                </li>
+                        </ul>
+                   </div>
+        
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+        <a id="navbarDropdown" class="navbar-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+           {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
+            
+          
+        <!------------->
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
+        
+            
+                
+        @endguest
+        </ul>
+        <!--</div>-->
     </nav>
     <div class="container-fluid">
         <div style="background-color:#333; color:#9d9d9d; margin-top:5px">
@@ -66,6 +106,3 @@
     
 </body>
 </html>
-
-
-
